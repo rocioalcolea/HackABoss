@@ -23,11 +23,6 @@ async function getUser(url) {
   return persona;
 }
 
-async function main() {
-  const personaRandom = await getUser(userUrl);
-  return personaRandom;
-}
-
 async function addCard(numeroCard) {
   const mainElement = document.querySelector("main");
 
@@ -37,7 +32,7 @@ async function addCard(numeroCard) {
   for (let i = 0; i < numeroCard; i++) {
     const li = document.createElement("li");
     const imagen = document.createElement("img");
-    const person = await main();
+    const person = await getUser(userUrl);
     imagen.src = person.foto;
     li.append(imagen);
     const nombre = document.createElement("h2");
